@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ebook Presente - Travessia para a Cura Interior | Tatiana Vilas Boas</title>
+    <style>
+        :root {
+            --primary-color: #6B4C3B;
+            --secondary-color: #A8DAB5;
+            --accent-color: #D4A574;
+            --light-bg: #FAF8F5;
+            --light-section: #F3E9E2;
+            --text-dark: #333333;
+            --text-light: #7A7A7A;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.8;
+            color: var(--text-dark);
+            background: linear-gradient(135deg, var(--light-bg) 0%, #ffffff 100%);
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .ebook-container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(107, 76, 59, 0.1);
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .header-section {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .header-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.1)"/></svg>');
+            background-size: cover;
+        }
+        
+        .author-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 4px solid white;
+            margin: 0 auto 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .author-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            font-weight: 300;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+        
+        .subtitle {
+            font-size: 1.3em;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+        
+        .presente-badge {
+            background: var(--secondary-color);
+            color: var(--primary-color);
+            padding: 10px 25px;
+            border-radius: 25px;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+        
+        .content-section {
+            padding: 50px 40px;
+        }
+        
+        .chapter {
+            margin-bottom: 50px;
+            padding-bottom: 40px;
+            border-bottom: 2px solid var(--light-section);
+        }
+        
+        .chapter:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        h2 {
+            color: var(--primary-color);
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid var(--secondary-color);
+            position: relative;
+        }
+        
+        h2::after {
+            content: "";
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--accent-color);
+        }
+        
+        h3 {
+            color: var(--primary-color);
+            font-size: 1.4em;
+            margin: 25px 0 15px;
+        }
+        
+        p {
+            margin-bottom: 20px;
+            font-size: 1.1em;
+        }
+        
+        .highlight-box {
+            background: var(--light-section);
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 5px solid var(--secondary-color);
+            margin: 25px 0;
+        }
+        
+        .exercise {
+            background: linear-gradient(135deg, #f8f9fa 0%, var(--light-bg) 100%);
+            padding: 25px;
+            border-radius: 15px;
+            border: 2px solid var(--secondary-color);
+            margin: 25px 0;
+        }
+        
+        .exercise h4 {
+            color: var(--primary-color);
+            font-size: 1.2em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .exercise h4::before {
+            content: "💫";
+            font-size: 1.3em;
+        }
+        
+        .step {
+            margin-bottom: 15px;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .step::before {
+            content: "•";
+            color: var(--secondary-color);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        .quote {
+            font-style: italic;
+            color: var(--text-light);
+            text-align: center;
+            padding: 30px;
+            border-left: 3px solid var(--accent-color);
+            background: var(--light-bg);
+            margin: 30px 0;
+            border-radius: 10px;
+        }
+        
+        .action-button {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--secondary-color) 0%, #95c9a3 100%);
+            color: white;
+            padding: 15px 35px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1em;
+            margin: 20px 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(168, 218, 181, 0.4);
+        }
+        
+        .action-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(168, 218, 181, 0.6);
+        }
+        
+        .footer-section {
+            background: var(--primary-color);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .contact-info {
+            margin: 25px 0;
+        }
+        
+        .website-link {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1em;
+        }
+        
+        .website-link:hover {
+            text-decoration: underline;
+        }
+        
+        .social-links {
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            color: white;
+            margin: 0 10px;
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            opacity: 1;
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            .header-section,
+            .content-section {
+                padding: 40px 20px;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+            
+            .subtitle {
+                font-size: 1.1em;
+            }
+        }
+        
+        @media print {
+            .action-button {
+                display: none;
+            }
+            
+            body {
+                background: white;
+                max-width: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="ebook-container">
+        <!-- Cabeçalho -->
+        <div class="header-section">
+            <div class="presente-badge">PRESENTE EXCLUSIVO</div>
+            <div class="author-photo">
+                <img src="https://i.imgur.com/fbaHucr.png" alt="Tatiana Vilas Boas">
+            </div>
+            <h1>Travessia para a Cura Interior</h1>
+            <p class="subtitle">Um guia amoroso para reconectar com sua essência</p>
+            <p><strong>Por Tatiana Vilas Boas</strong><br>Psicoterapeuta Multisensorial</p>
+        </div>
+        
+        <!-- Conteúdo Principal -->
+        <div class="content-section">
+            <!-- Introdução -->
+            <div class="chapter">
+                <h2>Uma Palavra do Coração</h2>
+                <p>Querida mulher que busca cura,</p>
+                <p>Receba este ebook como um abraço digital, um presente que nasce do meu profundo desejo de ver você florescer em toda sua potência.</p>
+                
+                <div class="highlight-box">
+                    <p>Assim como você, já carreguei dores que pareciam insuportáveis. E foi através da minha própria travessia que descobri: <strong>a cura não está em eliminar a dor, mas em transformá-la em sabedoria</strong>.</p>
+                </div>
+                
+                <p>Nestas páginas, reuni insights e práticas que podem iluminar seu caminho de autocura. Use-as como faróis, não como regras. Sua jornada é única e sagrada.</p>
+                
+                <div class="quote">
+                    "A maior aventura que você pode viver é a de se reconectar com sua própria essência."
+                </div>
+            </div>
+            
+            <!-- Capítulo 1 -->
+            <div class="chapter">
+                <h2>1. Os 4 Pilares da Cura Multisensorial</h2>
+                
+                <h3>🧠 Reconhecendo suas Marcas</h3>
+                <p>Nossas experiências ficam registradas não apenas na mente, mas em cada célula do corpo. O primeiro passo é aprender a escutar essas marcas com compaixão.</p>
+                
+                <h3>💫 A Conexão Transpessoal</h3>
+                <p>Você é mais que seu corpo e mente. É um ser espiritual tendo uma experiência humana. Reconectar com essa dimensão traz sentido e propósito.</p>
+                
+                <h3>🌿 O Corpo como Aliado</h3>
+                <p>Seu corpo não é inimigo que carrega dor, mas aliado que guarda sabedoria. Aprender sua linguagem é fundamental para a cura.</p>
+                
+                <h3>🔮 Os Sentidos como Portais</h3>
+                <p>Cada sentido pode ser um portal de cura quando usado com intenção. A terapia multisensorial trabalha com esses acessos diretos à alma.</p>
+            </div>
+            
+            <!-- Capítulo 2 -->
+            <div class="chapter">
+                <h2>2. Prática: A Ancoragem Sensorial</h2>
+                
+                <div class="exercise">
+                    <h4>Exercício de Presença</h4>
+                    <p><strong>Objetivo:</strong> Trazer a mente para o momento presente através dos sentidos</p>
+                    
+                    <div class="step">Encontre um lugar tranquilo e sente-se confortavelmente</div>
+                    <div class="step">Feche os olhos e respire profundamente 3 vezes</div>
+                    <div class="step">Nomeie mentalmente: 5 coisas que você ouve agora</div>
+                    <div class="step">Perceba: 4 sensações físicas no seu corpo</div>
+                    <div class="step">Identifique: 3 aromas no ambiente</div>
+                    <div class="step">Sinta: 2 emoções presentes neste momento</div>
+                    <div class="step">Agradeça: 1 coisa boa na sua vida agora</div>
+                    
+                    <p><strong>Dica:</strong> Use esta prática sempre que se sentir sobrecarregada ou ansiosa.</p>
+                </div>
+            </div>
+            
+            <!-- Capítulo 3 -->
+            <div class="chapter">
+                <h2>3. Reconhecendo os Sinais do Corpo</h2>
+                
+                <p>Seu corpo fala constantemente. Aprender sua linguagem é essencial para a cura:</p>
+                
+                <div class="highlight-box">
+                    <h3>📋 Diário Corporal Sugerido</h3>
+                    <p><strong>Tensão nos ombros:</strong> Pode indicar carga excessiva ou dificuldade em "descansar"</p>
+                    <p><strong>Dor no estômago:</strong> Pode sinalizar preocupações não digeridas</p>
+                    <p><strong>Rigidez na nuca:</strong> Pode mostrar resistência em ver novas perspectivas</p>
+                    <p><strong>Fadiga constante:</strong> Pode ser sinal de desalinhamento com seu propósito</p>
+                </div>
+                
+                <p>Lembre-se: esses são apenas indícios. Cada pessoa tem sua linguagem corporal única.</p>
+            </div>
+            
+            <!-- Capítulo 4 -->
+            <div class="chapter">
+                <h2>4. Criando seu Santuário Interior</h2>
+                
+                <p>Todo processo de cura precisa de um espaço sagrado - não necessariamente físico, mas interno.</p>
+                
+                <div class="exercise">
+                    <h4>Visualização Criadora</h4>
+                    <p><strong>Duração:</strong> 5-10 minutos</p>
+                    
+                    <div class="step">Feche os olhos e imagine um lugar onde você se sente completamente segura</div>
+                    <div class="step">Detalhe este lugar: cores, sons, aromas, texturas</div>
+                    <div class="step">Coloque neste espaço tudo que traz conforto e paz</div>
+                    <div class="step">Sinta esta segurança impregnando cada célula do seu ser</div>
+                    <div class="step">Saiba que pode voltar a este lugar sempre que precisar</div>
+                </div>
+                
+                <div class="quote">
+                    "O santuário mais poderoso não está fora de você, mas dentro do seu próprio coração."
+                </div>
+            </div>
+            
+            <!-- Chamada para Ação -->
+            <div style="text-align: center; margin: 50px 0;">
+                <h3>Pronta para a Próxima Etapa da Sua Cura?</h3>
+                <p>Este ebook é apenas o começo. Se você sente que chegou o momento de uma transformação mais profunda, estou aqui para guiá-la.</p>
+                <a href="https://wa.me/5571983039055" class="action-button">
+                    💬 Iniciar Minha Travessia de Cura
+                </a>
+            </div>
+        </div>
+        
+        <!-- Rodapé -->
+        <div class="footer-section">
+            <h3>Continuemos Esta Jornada Juntas</h3>
+            
+            <div class="contact-info">
+                <p><strong>Tatiana Vilas Boas</strong><br>
+                Psicoterapeuta Multisensorial</p>
+                
+                <p>📍 Visite meu site:<br>
+                <a href="https://tatianavilasboas.github.io" class="website-link" target="_blank">
+                    tatianavilasboas.github.io
+                </a></p>
+                
+                <p>📱 WhatsApp:<br>
+                <a href="https://wa.me/5571983039055" class="website-link">
+                    (71) 98303-9055
+                </a></p>
+            </div>
+            
+            <div class="social-links">
+                <p>Me acompanhe nas redes sociais:</p>
+                <a href="#">Instagram</a> • 
+                <a href="#">Facebook</a> • 
+                <a href="#">YouTube</a>
+            </div>
+            
+            <p style="margin-top: 30px; opacity: 0.8; font-size: 0.9em;">
+                Com amor e gratidão,<br>
+                Tatiana Vilas Boas<br>
+                <em>Porque sua cura importa</em>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Script opcional para melhor experiência
+        document.addEventListener('DOMContentLoaded', function() {
+            // Adiciona smooth scroll para links internos
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+            
+            // Adiciona impressão amigável
+            const printButton = document.createElement('button');
+            printButton.textContent = '🖨️ Imprimir este Ebook';
+            printButton.style.cssText = `
+                display: block;
+                margin: 20px auto;
+                padding: 10px 20px;
+                background: var(--primary-color);
+                color: white;
+                border: none;
+                border-radius: 25px;
+                cursor: pointer;
+                font-size: 14px;
+            `;
+            printButton.addEventListener('click', () => window.print());
+            document.querySelector('.content-section').appendChild(printButton);
+        });
+    </script>
+</body>
+</html>
